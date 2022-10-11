@@ -28,7 +28,7 @@ public class Audience {
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "audience")
     @JsonIgnoreProperties({"audiences", "messages"})
-    private List<Reservation> reservation;
+    private List<Reservation> reservations;
 
 
 
@@ -80,12 +80,12 @@ public class Audience {
         this.category = category;
     }
 
-    public List<Reservation> getReservation() {
-        return reservation;
+    public List<Reservation> getReservations() {
+        return reservations;
     }
 
-    public void setReservation(List<Reservation> reservation) {
-        this.reservation = reservation;
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 
     public List<Message> getMessages() {

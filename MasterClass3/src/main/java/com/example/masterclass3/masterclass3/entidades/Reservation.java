@@ -19,7 +19,7 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name="audienceId")
-    @JsonIgnoreProperties({"reservation"})
+    @JsonIgnoreProperties({"reservations"})
     private Audience audience;
 
 
@@ -30,7 +30,7 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name="scoreId")
-    @JsonIgnoreProperties("reservation")
+    @JsonIgnoreProperties("reservations")
     private Score score;
 
 
