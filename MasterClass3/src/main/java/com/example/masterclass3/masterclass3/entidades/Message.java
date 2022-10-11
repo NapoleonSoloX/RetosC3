@@ -15,7 +15,7 @@ public class Message {
 
     @ManyToOne
     @JoinColumn(name="audienceId")
-    @JsonIgnoreProperties({"message","client","reservation"})
+    @JsonIgnoreProperties({"messages","client","reservation"})
     private Audience audience;
 
 

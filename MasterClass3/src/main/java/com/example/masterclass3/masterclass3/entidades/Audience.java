@@ -23,12 +23,13 @@ public class Audience {
     private Category category;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "audience")
+    @JsonIgnoreProperties({"audience","category", "client"})
+    private List<Message> messages;
+
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "audience")
     @JsonIgnoreProperties({"audiences", "messages"})
     private List<Reservation> reservation;
 
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "audience")
-    @JsonIgnoreProperties({"audience","category", "client"})
-    private List<Message> message;
 
 
     public Integer getId() {
@@ -87,11 +88,11 @@ public class Audience {
         this.reservation = reservation;
     }
 
-    public List<Message> getMessage() {
-        return message;
+    public List<Message> getMessages() {
+        return messages;
     }
 
-    public void setMessage(List<Message> message) {
-        this.message = message;
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 }
