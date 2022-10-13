@@ -36,6 +36,7 @@ public class CategoryService {
 
     }
 
+
     public Category update(Category p) {
         if (p.getId() != null) {
             Optional<Category> q = categoryRepository.getCategory(p.getId());
@@ -56,6 +57,7 @@ public class CategoryService {
         }
 
     }
+
     public boolean delete (int id){
         boolean flag = false;
         Optional<Category>p= categoryRepository.getCategory(id);
