@@ -1,6 +1,7 @@
 package com.example.masterclass3.masterclass3.controlador;
 
 
+import com.example.masterclass3.masterclass3.entidades.Admin;
 import com.example.masterclass3.masterclass3.entidades.Reservation;
 import com.example.masterclass3.masterclass3.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,15 @@ public class ReservationController {
     public Reservation save(@RequestBody Reservation p){
         return reservationService.save(p);
         }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Reservation update(@RequestBody Reservation p){ return reservationService.update(p);}
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable ("id") int id){
+        return reservationService.delete (id);
+    }
 
 }

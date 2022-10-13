@@ -43,6 +43,10 @@ public class ScoreService {
                 if (p.getScore() != null) {
                     q.get().setScore(p.getScore());
                 }
+                if (p.getMessageText() != null) {
+                    q.get().setMessageText(p.getMessageText());
+                }
+
                 scoreRepository.save(q.get());
                 return q.get();
             } else {

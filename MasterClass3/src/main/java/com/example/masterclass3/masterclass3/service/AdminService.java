@@ -36,12 +36,18 @@ public class AdminService {
 
     }
 
-    public Admin update(Admin p) {
+    public Admin update (Admin p) {
         if (p.getId() != null) {
             Optional<Admin> q = adminRepository.getAdmin(p.getId());
             if (q.isPresent()) {
                 if (p.getName() != null) {
                     q.get().setName(p.getName());
+                }
+                if (p.getPassword() != null) {
+                    q.get().setPassword(p.getPassword());
+                }
+                if (p.getEmail() != null) {
+                    q.get().setEmail(p.getEmail());
                 }
                 adminRepository.save(q.get());
                 return q.get();
@@ -51,8 +57,8 @@ public class AdminService {
         } else {
             return p;
         }
-
     }
+
     public boolean delete (int id){
         boolean flag = false;
         Optional<Admin>p= adminRepository.getAdmin(id);

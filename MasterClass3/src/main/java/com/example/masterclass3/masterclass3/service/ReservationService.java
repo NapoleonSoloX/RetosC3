@@ -39,17 +39,15 @@ public class ReservationService {
         if (p.getIdReservation() != null) {
             Optional<Reservation> q = reservationRepository.getReservation(p.getIdReservation());
             if (q.isPresent()) {
-                /*if (p.getPalco() != null) {
-                    q.get().setPalco(p.getPalco());
-                }
-                if (p.getCliente() != null) {
-                    q.get().setCliente(p.getCliente());
-                }*/
+
                 if (p.getStartDate() != null) {
                     q.get().setStartDate(p.getStartDate());
                 }
                 if (p.getDevolutionDate() != null) {
                     q.get().setDevolutionDate(p.getDevolutionDate());
+                }
+                if (p.getStatus() != null) {
+                    q.get().setStatus(p.getStatus());
                 }
 
                 reservationRepository.save(q.get());
@@ -62,6 +60,7 @@ public class ReservationService {
         }
 
     }
+
     public boolean delete (int id){
         boolean flag = false;
         Optional<Reservation>p= reservationRepository.getReservation(id);

@@ -1,5 +1,6 @@
 package com.example.masterclass3.masterclass3.controlador;
 
+import com.example.masterclass3.masterclass3.entidades.Admin;
 import com.example.masterclass3.masterclass3.entidades.Category;
 import com.example.masterclass3.masterclass3.entidades.Score;
 import com.example.masterclass3.masterclass3.service.CategoryService;
@@ -26,6 +27,16 @@ public class ScoreController {
     @ResponseStatus(HttpStatus.CREATED)
     public Score save(@RequestBody Score p){
         return scoreService.save(p);
+    }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Score update(@RequestBody Score p){ return scoreService.update(p);}
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable ("id") int id){
+        return scoreService.delete (id);
     }
 
 }

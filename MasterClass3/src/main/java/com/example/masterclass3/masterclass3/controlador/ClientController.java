@@ -1,5 +1,6 @@
 package com.example.masterclass3.masterclass3.controlador;
 
+import com.example.masterclass3.masterclass3.entidades.Admin;
 import com.example.masterclass3.masterclass3.entidades.Category;
 import com.example.masterclass3.masterclass3.entidades.Client;
 import com.example.masterclass3.masterclass3.service.CategoryService;
@@ -26,6 +27,16 @@ public class ClientController {
     @ResponseStatus(HttpStatus.CREATED)
     public Client save(@RequestBody Client p){
         return clientService.save(p);
+    }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Client update(@RequestBody Client p){ return clientService.update(p);}
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable ("id") int id){
+        return clientService.delete(id);
     }
 
 }
